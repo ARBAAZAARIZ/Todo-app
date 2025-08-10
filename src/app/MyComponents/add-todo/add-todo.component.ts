@@ -8,21 +8,25 @@ import { Todo } from 'src/app/Todo';
 })
 export class AddTodoComponent {
 
-  title : string | undefined;
-  desc : string | undefined;
+  title: string = '';
+  desc: string = '';
+
 
   @Output() todoAdd: EventEmitter<Todo> = new EventEmitter();
 
   onSubmit() {
-    const todo = {
-      sno:8,
-      title :this.title,
-      desc : this.desc,
-      active : true
+    if (this.title.trim() && this.desc.trim()) {
+      const todo: Todo = {
+        sno: Date.now(),
+        title: this.title.trim(),
+        desc: this.desc.trim(),
+        active: true
+      };
+      this.todoAdd.emit(todo);
+    } else {
+      console.error("Invalid todo: title or description missing");
     }
-
-    this.todoAdd.emit(todo);
-   
   }
+
 
 }
