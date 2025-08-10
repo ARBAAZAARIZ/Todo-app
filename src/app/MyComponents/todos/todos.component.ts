@@ -25,11 +25,7 @@ export class TodosComponent {
     console.log("Add request received for todo:", todo);
 
     if (
-      todo &&
-      typeof todo.title === 'string' &&
-      typeof todo.desc === 'string' &&
-      todo.title.trim() &&
-      todo.desc.trim()
+      todo !=null 
     ) {
       this.todos.push(todo);
       console.log("Todo added:", this.todos);
