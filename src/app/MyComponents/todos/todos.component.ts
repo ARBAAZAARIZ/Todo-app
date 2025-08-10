@@ -7,66 +7,48 @@ import { Todo } from 'src/app/Todo';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent {
-
-  todos: Todo[] | undefined;
+  todos: Todo[] = [];
 
   constructor() {
-    this.todos = []
     const storedTodos = localStorage.getItem("todos");
-    this.todos = storedTodos ? JSON.parse(storedTodos) as Todo[] : undefined;
-
-
+    this.todos = storedTodos ? JSON.parse(storedTodos) as Todo[] : [];
   }
 
-  deleteTodo(todo: Todo | undefined) {
+  deleteTodo(todo: Todo) {
     console.log("Delete request received for todo:", todo);
 
-    if (todo && this.todos) {
-      this.todos = this.todos.filter(t => t.sno !== todo.sno);
-    }
-    localStorage.setItem("todos", JSON.stringify(this.todos));
-
-    const storedTodos = localStorage.getItem("todos");
-    this.todos = storedTodos ? JSON.parse(storedTodos) as Todo[] : undefined;
-
-    console.log(todo);
-
+    this.todos = this.todos.filter(t => t.sno !== todo.sno);
+    this.saveTodos();
   }
 
   addTodo(todo: Todo) {
     console.log("Add request received for todo:", todo);
 
-    if (todo && this.todos) {
-      todo.sno = this.todos.length + 1; // Assign a new sno based on the current length
+    if (
+      todo &&
+      typeof todo.title === 'string' &&
+      typeof todo.desc === 'string' &&
+      todo.title.trim() &&
+      todo.desc.trim()
+    ) {
       this.todos.push(todo);
       console.log("Todo added:", this.todos);
-      localStorage.setItem("todos", JSON.stringify(this.todos));
-
-      const storedTodos = localStorage.getItem("todos");
-      this.todos = storedTodos ? JSON.parse(storedTodos) as Todo[] : undefined;
+      this.saveTodos();
     } else {
       console.error("Invalid todo object received for addition.");
     }
-
   }
 
-  changeTodoStatus(todo : Todo){
-
-    if(todo && this.todos){
-      const todoObj = this.todos.find(t => todo===t);
-      if(todoObj){
-        todoObj.active = !todoObj.active; // Toggle the active status
-        console.log("Todo status changed:", todoObj);
-        localStorage.setItem("todos", JSON.stringify(this.todos));
-
-        const storedTodos = localStorage.getItem("todos");
-        this.todos = storedTodos ? JSON.parse(storedTodos) as Todo[] : undefined;
-      }
+  changeTodoStatus(todo: Todo) {
+    const todoObj = this.todos.find(t => t.sno === todo.sno);
+    if (todoObj) {
+      todoObj.active = !todoObj.active;
+      console.log("Todo status changed:", todoObj);
+      this.saveTodos();
     }
-
-
   }
 
-
-
+  private saveTodos() {
+    localStorage.setItem("todos", JSON.stringify(this.todos));
+  }
 }
