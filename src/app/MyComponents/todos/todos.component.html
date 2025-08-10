@@ -7,7 +7,7 @@
       Your Task Manager
     </h2>
     <span class="badge bg-info text-dark fs-6 shadow-sm">
-      {{ todos?.length || 0 }} Tasks
+      {{ todos.length }} Tasks
     </span>
   </div>
 
@@ -17,7 +17,7 @@
   </div>
 
   <!-- Empty State Alert -->
-  <div *ngIf="todos?.length === 0" class="alert alert-light text-center shadow-sm">
+  <div *ngIf="todos.length === 0" class="alert alert-light text-center shadow-sm">
     <i class="bi bi-emoji-frown-fill me-2"></i>
     No todos yet! Add one to get started.
   </div>
