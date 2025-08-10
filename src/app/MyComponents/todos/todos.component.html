@@ -1,0 +1,36 @@
+<div class="container my-5">
+
+  <!-- Header with icon and task count -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-white bg-dark py-2 px-3 rounded-pill">
+      <i class="bi bi-list-task me-2"></i>
+      Your Task Manager
+    </h2>
+    <span class="badge bg-info text-dark fs-6 shadow-sm">
+      {{ todos?.length || 0 }} Tasks
+    </span>
+  </div>
+
+  <!-- Add-Todo Component -->
+  <div class="mb-4">
+    <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+  </div>
+
+  <!-- Empty State Alert -->
+  <div *ngIf="todos?.length === 0" class="alert alert-light text-center shadow-sm">
+    <i class="bi bi-emoji-frown-fill me-2"></i>
+    No todos yet! Add one to get started.
+  </div>
+
+  <!-- Todo Items Grid -->
+  <div class="row g-4">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let todo of todos">
+      <app-todo-item
+        [todo]="todo"
+        (todoDelete)="deleteTodo($event)"
+        (todoStatusChange)="changeTodoStatus($event)">
+      </app-todo-item>
+    </div>
+  </div>
+
+</div>

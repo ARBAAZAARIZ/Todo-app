@@ -1,0 +1,22 @@
+
+
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title text-primary">{{todo?.title}}</h5>
+    <p class="card-text">{{todo?.desc}}</p>
+    <span class="badge bg-{{todo?.active ? 'success' : 'warning'}}">
+      {{todo?.active ? 'Active' : 'Inactive'}}
+    </span>
+  </div>
+
+  <div *ngIf="todo?.active === true" class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" (click)="checkBoxClick(todo)">
+    <label class="form-check-label" for="exampleCheck1" >Mark as Done</label>
+  </div>
+
+  <div class="card-footer text-end">
+    <button class="btn btn-outline-danger btn-sm" (click)="onClick(todo)">🗑 Delete</button>
+  </div>
+</div>
+
+

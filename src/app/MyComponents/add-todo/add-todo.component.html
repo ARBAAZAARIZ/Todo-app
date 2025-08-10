@@ -1,0 +1,18 @@
+<div class="card mb-4 shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Add a New Todo</h5>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title" placeholder="Enter task title">
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Description</label>
+        <input type="text" class="form-control" id="desc" [(ngModel)]="desc" name="desc" placeholder="Enter task details">
+      </div>
+      <button type="submit" class="btn btn-success w-100">Add Todo</button>
+    </form>
+  </div>
+</div>
