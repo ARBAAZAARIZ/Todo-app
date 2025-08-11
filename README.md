@@ -1,27 +1,51 @@
-# TodoList
+# 📝 Angular Todo App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+Welcome to my **Todo List App** — a responsive, frontend-only task manager built using **Angular**, **Bootstrap**, and **TypeScript**. This project showcases how to build a clean and interactive UI without relying on any backend services.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Live Demo
 
-## Code scaffolding
+👉 [Click here to view the live app](https://arbaazaariz.github.io/Todo-app/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🛠 Technologies Used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Angular** – Component-based architecture and reactive UI
+- **Bootstrap 5** – Responsive layout and styling
+- **TypeScript** – Strong typing and maintainable code
+- **LocalStorage** – Persistent data without backend
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 📚 Features
 
-## Running end-to-end tests
+- ✅ Add, delete, and mark tasks as completed
+- ⚡ Real-time UI updates using Angular's data binding
+- 💾 Persistent data using browser localStorage
+- 📱 Responsive design for mobile and desktop
+- 🎨 Clean and attractive UI with Bootstrap icons
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## 🎯 Purpose
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This app was created as a hands-on project to strengthen my frontend development skills. It demonstrates my ability to build functional and user-friendly interfaces using Angular and Bootstrap.
+
+---
+
+## 📦 Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/ARBAAZAARIZ/Todo-app.git
+
+# Navigate into the project folder
+cd Todo-app
+
+# Install dependencies
+npm install
+
+# Run the app locally
+ng serve
